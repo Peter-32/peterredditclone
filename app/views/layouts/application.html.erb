@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Peterredditclone</title>
-    <%= csrf_meta_tags %>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Blog" />
-    <%= favicon_link_tag 'favicon.ico' %>
-    <!-- Recommneded by favicon site
-    <meta name="theme-color" content="#ffffff">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-    <link rel="manifest" href="/images/manifest.json">
-    <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-  -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse bg-primary">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button><li id="nav_li_wrapper">
+<head>
+  <title>Peterredditclone</title>
+  <%= csrf_meta_tags %>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="Blog" />
+  <%= favicon_link_tag 'favicon.ico' %>
+  <!-- Recommneded by favicon site
+  <meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="manifest" href="/images/manifest.json">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <nav class="navbar navbar-inverse bg-primary">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button><li id="nav_li_wrapper">
       <%= image_tag("robot.gif", :alt => "robot", :id => "robot_img") %>
       <a class="navbar-brand" href="#">reddit</a>
       <div class="collapse navbar-collapse" id="navbarText">
@@ -42,67 +42,88 @@
         </ul>
       </div>
     </li>
-    </nav>
+  </nav>
 
-    <!-- Float right nav -->
-    <div id="right-nav">
-      <p>Please log in or sign up to post</p>
-      <div id="right-nav-container">
+  <!-- Float right nav -->
+  <div id="right-nav">
+    <p>Please log in or sign up to post</p>
+    <div class="container">
 
-<%= form_with scope: :user, url: user_path, local: true do |form| %>
-<div class="row">
-  <div class="col-sm-6">
-        <!-- Sign up: firstname, email, username, password -->
+      <%= form_with scope: :user, url: user_path, local: true do |form| %>
+      <div class="row">
+        <div class="col-sm-6">
+          <p>
+            <%= form.label :firstname, "First Name" %><br>
+            <%= form.text_field :firstname, :size => "15" %>
+          </p>
+        </div>
+        <div class="col-sm-6">
+          <p>
+            <%= form.label :username %><br>
+            <%= form.text_field :username, :size => "15" %>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <p>
+            <%= form.label :email %><br>
+            <%= form.text_field :email, :size => "15" %>
+          </p>
+        </div>
+        <div class="col-sm-6">
+          <p>
+            <%= form.label :password %><br>
+            <%= form.password_field :password, :size => "15" %>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <%= form.submit "Sign Up", class: "btn btn-primary"%>
+          </p>
+        </div>
+      </div>
+    <% end %>
 
-        <p>
-          <%= form.label :firstname, "First Name" %><br>
-          <%= form.text_field :firstname, :size => "15" %>
-        </p>
-        <p>
-          <%= form.label :email %><br>
-          <%= form.text_field :email, :size => "15" %>
-        </p>
-</div>
-<div class="col-sm-6">
-
+    <%= form_for(:session, url: login_path) do |form| %>
+    <div class="row">
+      <div class="col-sm-6">
         <p>
           <%= form.label :username %><br>
           <%= form.text_field :username, :size => "15" %>
         </p>
-
+      </div>
+      <div class="col-sm-6">
         <p>
           <%= form.label :password %><br>
           <%= form.password_field :password, :size => "15" %>
         </p>
-</div>
-
-<div class="col-sm-6">
-        <p>
-          <%= form.submit "Sign Up"%>
-        </p>
-
-</div>
-      <% end %>
-</div>
-</div>
-
-
-
-
-
-
       </div>
     </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p>
+          <%= form.submit "Log in", class: "btn btn-primary"%>
+        </p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+</div>
+</div>
 
 
-    <%= yield %>
+<%= yield %>
 
 
 
-    <!-- bootstrap and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </body>
+<!-- bootstrap and jQuery -->
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</body>
 </html>

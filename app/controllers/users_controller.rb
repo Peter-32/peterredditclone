@@ -14,9 +14,13 @@ class UsersController < ApplicationController
   end
 
   def create
+    # TODO: here - direct to page saying to check email
     @user = User.new(params.require(:user).permit(:username, :password))
-    @user.save
-    redirect_to pages_path
+    if @user.save
+      redirect_to pages_path
+    else
+      redirect_to pages_path
+    end
   end
 
 end

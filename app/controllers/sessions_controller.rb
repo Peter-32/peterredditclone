@@ -13,9 +13,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # TODO: here - direct to page saying to check email
-    @session = Session.new(params.require(:session).permit(:username))
-    @session.save
+    puts params[:session][:username]
+    puts params[:session][:password]
+
+
+    #@session = Session.new(params.require(:session).permit(:username))
+    #@session.save
     redirect_to pages_path
   end
 
