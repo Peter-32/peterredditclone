@@ -3,17 +3,24 @@
     <th></th>
     <th></th>
     <th></th>
-    <th>Title</th>
-    <th>Created</th>
+    <th></th>
   </tr>
 
   <% @pages.each do |page| %>
     <tr>
       <td><%= page.id %></td>
-      <td><%= page.up_votes + page.down_votes %></td>
-      <td><%= image_tag("robot.gif", :alt => "robot", :class => "thumbnail_img") %></td>
+      <td>
+        <div>
+        <ul class="vote_container">
+          <li><img></li>
+          <li><%= image_tag("up", :alt => "up", :class => "arrow") %></li>
+          <li><%= page.up_votes + page.down_votes %></li>
+          <li><%= image_tag("down", :alt => "down", :class => "arrow") %></li>
+        </ul>
+      </div>
+      </td>
+      <td><%= image_tag("missing-image-232x150", :alt => "uploaded image", :class => "thumbnail_img") %></td>
       <td><%= link_to page.title, page_path(page) %></td>
-      <td><%= page.created_at %></td>
     </tr>
   <% end %>
 <div>

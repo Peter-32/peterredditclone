@@ -1,3 +1,6 @@
+html body {
+  height: 800px;
+}
 #robot_img {
   width: 30px;
   height: 50px;
@@ -16,9 +19,37 @@
 
 #show_pages_table td {
   height: 50px;
-
 }
 
 .thumbnail_img {
   max-height: 100%;
+}
+
+.vote_container {
+  list-style-type: none;
+  position: relative;
+
+}
+
+.arrow_images {
+
+}
+.arrow {
+  max-height: 15px;
+  position: relative;
+  right: 3px;
+  cursor: pointer;
+}
+
+#right-nav {
+  width: 300px;
+  height: 100%;
+  float: right;
+
+}
+
+#right-nav-container {
+  width: 200px;
+  height: 100%;
+  float: right;
 }

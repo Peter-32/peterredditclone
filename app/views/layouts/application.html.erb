@@ -44,6 +44,43 @@
     </li>
     </nav>
 
+    <!-- Float right nav -->
+    <div id="right-nav">
+      <p>Please log in or sign up to post</p>
+      <div id="right-nav-container">
+      <%= form_with scope: :user, url: user_path, local: true do |form| %>
+        <p>
+          <%= form.label :user %><br>
+          <%= form.text_field :user %>
+        </p>
+
+        <p>
+          <%= form.label :password %><br>
+          <%= form.password_field :password %>
+        </p>
+
+        <p>
+          <%= form.submit "Login" %>
+        </p>
+      <% end %>
+      <%= form_with scope: :session, url: session_path, local: true do |form| %>
+        <p>
+          <%= form.label :user %><br>
+          <%= form.text_field :user %>
+        </p>
+
+        <p>
+          <%= form.label :password %><br>
+          <%= form.password_field :password %>
+        </p>
+
+        <p>
+          <%= form.submit "Sign Up"%>
+        </p>
+      <% end %>
+
+      </div>
+    </div>
 
 
     <%= yield %>
