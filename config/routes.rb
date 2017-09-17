@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
    resources :pages # This will add many routes for CRUD of the pages model model
     post '/user', to: 'users#create'
-    post '/session', to: "sessions#create"
-    delete '/session', to: "sessions#destroy"
+    post '/login', to: "sessions#create"
+    delete '/logout', to: "sessions#destroy"
     :sessions
 
   root :to => "pages#index"

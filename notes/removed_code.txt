@@ -1,0 +1,49 @@
+login form:
+
+<%= form_with scope: :user, url: user_path, local: true do |form| %>
+  <p>
+    <%= form.label :username %><br>
+    <%= form.text_field :username %>
+  </p>
+
+  <p>
+    <%= form.label :password %><br>
+    <%= form.password_field :password %>
+  </p>
+
+  <p>
+    <%= form.submit "Login" %>
+  </p>
+<% end %>
+
+
+
+Change columns:
+
+class AddColumnsToUsers < ActiveRecord::Migration[5.1]
+  def up
+    add_column :users, :status, :string
+    add_column :users, :email, :string
+    add_column :users, :firstname, :string
+      User.find_each do |user|
+        user.status = "ACTIVE"
+        user.email = ""
+        user.firstname = ""
+        user.save!
+      end
+    end
+
+  def down
+    remove_column :users, :status
+    remove_column :users, :email
+    remove_column :users, :firstname
+  end
+end
+
+
+
+
+New form login:
+
+
+    
