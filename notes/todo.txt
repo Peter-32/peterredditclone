@@ -1,9 +1,10 @@
 ideas to possibly do:
   owner of a post
   admin user
+  admin page
   delete page
   update page
-  admin page
+
   ban user
   add comments (foreign key to user and post)
   Add key binding on Atom software

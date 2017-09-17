@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     # TODO: here - direct to page saying to check email
     @user = User.new(params.require(:user).permit(:firstname, :username, :password, :email))
     if @user.save
+      session[:user_id] = @user.id
       redirect_to pages_path
     else
       redirect_to pages_path
