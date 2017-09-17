@@ -1,0 +1,24 @@
+#robot_img {
+  width: 30px;
+  height: 50px;
+}
+
+#nav_li_wrapper {
+    display: block;
+    float: left;
+}
+
+#show_pages_table {
+  border-width: 1px;
+  border-collapse: separate;
+  border-spacing: 15px;
+}
+
+#show_pages_table td {
+  height: 50px;
+
+}
+
+.thumbnail_img {
+  max-height: 100%;
+}

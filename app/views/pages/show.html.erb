@@ -1,0 +1,14 @@
+<p>
+  <strong>Title:</strong>
+  <%= @page.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @page.body %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <td><%= number_to_percentage(@page.rating, precision: 0) %></td>
+</p>
