@@ -46,6 +46,7 @@
 
   <!-- Float right nav -->
   <div id="right-nav">
+  <% if !logged_in? %>
     <p>Please log in or sign up to post</p>
     <div class="container">
 
@@ -112,13 +113,13 @@
   </div>
   <% end %>
 
-</div>
+<% else %>
+<%= button_to "Log out", logout_path, method: "delete", class: "btn btn-primary"%>
+<% end %>
 </div>
 
 
 <%= yield %>
-
-
 
 <!-- bootstrap and jQuery -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

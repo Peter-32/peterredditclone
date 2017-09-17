@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20170917054228) do
     t.string "firstname"
     t.string "email"
     t.string "username"
-    t.string "password"
-    t.string "status"
+    t.string "password_digest"
+    t.string "status", default: "ACTIVE"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

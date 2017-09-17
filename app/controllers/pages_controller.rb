@@ -13,9 +13,14 @@ class PagesController < ApplicationController
   end
 
   def create
-    @page = Page.new(params.require(:page).permit(:title, :body))
-    @page.save
-    redirect_to @page
+    if logged_in?
+      @page = Page.new(params.require(:page).permit(:title, :body))
+      @page.save
+      redirect_to @page
+    else
+      redirect_to pages_path
+    end
+
   end
 
   def get_score(item_upvotes, item_downvotes)

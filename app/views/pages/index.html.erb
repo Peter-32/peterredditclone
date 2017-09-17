@@ -24,6 +24,11 @@
     </tr>
   <% end %>
 <div>
+  <% if logged_in? %>
   <button><%= link_to "New Post", "/pages/new" %></button>
+<% else %>
+
+<% end %>
+
 </div>
 </table>

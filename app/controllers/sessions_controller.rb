@@ -13,16 +13,17 @@ class SessionsController < ApplicationController
   end
 
   def create
-    puts params[:session][:username]
-    puts params[:session][:password]
-
-
-    #@session = Session.new(params.require(:session).permit(:username))
-    #@session.save
+    user = User.find_by(username: params[:session][:username])
+    if user && user.authenticate(params[:session][:password]) && user.status == "ACTIVE"
+      log_in(user)
+    else
+      flash.now[:danger] = 'Invalid email/password combination'
+    end
     redirect_to pages_path
   end
 
   def destroy
+    log_out
     redirect_to pages_path
   end
 end

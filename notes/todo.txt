@@ -1,28 +1,22 @@
-basic login
-  signup goes to signup page to ask to check email
-  email validation (HTML email field?? bootstrap automatically do this?)
-  Log out button
-  Sessions using cookies not a database. (Remove the sessions table)
-Make sure login checks for user, password, and active field
-post button
-owner of a post
-admin user
-delete page
-update page
-admin page
-ban user
-add comments (foreign key to user and post)
-add firstname to user
-Add key binding on Atom software
-
+ideas to possibly do:
+  owner of a post
+  admin user
+  delete page
+  update page
+  admin page
+  ban user
+  add comments (foreign key to user and post)
+  Add key binding on Atom software
+  remove login into the url if possible
 
 
 
 Done:
-signup has email address
-signup as firstname
-formatting the form with bootstrap
-
+  signup has email address
+  signup as firstname
+  formatting the form with bootstrap
+  basic login
+  Make sure login checks for active field
 
 Optional:
-advanced login (email login and require an email)
+  advanced login (email login and require an email)
